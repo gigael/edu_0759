@@ -4,7 +4,12 @@
 
 public class Main {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        int figure = 31;
+        boolean divide = false;
+        for (int i = 2; i < figure; i++) {
+            if (figure%i==0) divide=true;
+        }
+        System.out.println(divide);
 
     }
 }

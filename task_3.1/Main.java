@@ -10,7 +10,12 @@
 
 public class Main {
     public static int min(int a, int b, int c) {
-        //напишите тут ваш код
+        int tempmin;
+        if (a<b) tempmin = a;
+        else tempmin = b;
+        if (c<tempmin) tempmin = c;
+        else return tempmin;
+        return tempmin;
     }
 
     public static void main(String[] args) {

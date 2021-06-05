@@ -4,7 +4,15 @@
 
 public class Main {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        int[] myarray={1,8,1,3};
+        int sum=0, i;
+
+        for (i = 0; i < myarray.length; i++) {
+            sum=sum+myarray[i];
+            if (sum>10) break;
+        }
+        if (sum<10) System.out.println("Сумма элементов менее 10");
+        else System.out.println("Сумма превысила 10 после сложения "+(i+1)+" элементов");
 
     }
 }

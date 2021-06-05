@@ -4,7 +4,11 @@
 
 public class Main {
     public static void main(String[] args) {
-        //напишите тут ваш код
+        int a=9, b=4;
+        if (a%b==0) System.out.println("Делится, результат деления: "+a/b);
+        else System.out.println("Делится с остатком "+a%b);
+
+
 
     }
 }
