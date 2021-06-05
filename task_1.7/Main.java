@@ -13,11 +13,17 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
-        int b = scan.nextInt();
-        int c = scan.nextInt();
-        int d = a * b * c;
-        System.out.println("нужно " + d + "000 литров воды");
+        System.out.println("Введите ширину бассейна в метрах");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+
+        System.out.println("Введите длину бассейна в метрах");
+        int b = scanner.nextInt();
+
+        System.out.println("Введите высоту бассейна в метрах");
+        int c = scanner.nextInt();
+
+        System.out.println("Необходимо для заполнения бассейна литров:");
+        System.out.println(a*b*c*1000);
     }
 }
