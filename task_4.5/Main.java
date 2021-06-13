@@ -6,8 +6,34 @@
 Создать объект пегаса и вызвать метод fly();
 */
 
-public class Main{
+public class Main {
     public static void main(String[] args) {
-      //Ваш код
+        new Horse().run();
+        new Pegasus().fly();
     }
 }
+
+abstract class Animal {
+    // public abstract void run();
+    // public  abstract void fly();
+
+}
+
+class Horse extends Animal {
+
+    String say = "Игого, я поскакал(а)";
+
+    public void run() {
+        System.out.println(say);
+    }
+
+}
+
+class Pegasus extends Horse {
+
+
+    public void fly() {
+        System.out.println("Игого, я полетел(а)");
+    }
+}
+
