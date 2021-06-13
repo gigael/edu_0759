@@ -1,60 +1,62 @@
 /*
- * 2) Номера (кол-во мест(1-3), сан.узел(есть/нет), питаение(есть/нет), wifi(есть/нет), свободен/занят)
+ * 2) РќРѕРјРµСЂР° (РєРѕР»-РІРѕ РјРµСЃС‚(1-3), СЃР°РЅ.СѓР·РµР»(РµСЃС‚СЊ/РЅРµС‚), РїРёС‚Р°РµРЅРёРµ(РµСЃС‚СЊ/РЅРµС‚), wifi(РµСЃС‚СЊ/РЅРµС‚), СЃРІРѕР±РѕРґРµРЅ/Р·Р°РЅСЏС‚)
  */
 
-class Room {
-  private byte quantity;
-  private boolean wc;
-  private boolean eat;
-  private boolean wifi;
-  private boolean isFree;
-  private byte roomNumber;
 
-  public Room(byte quantity, boolean wc, boolean eat, boolean wifi,byte roomNumber) {
-    this.quantity = quantity;
-    this.wc = wc;
-    this.eat = eat;
-    this.wifi = wifi;
-    this.isFree = true;
-    this.roomNumber = roomNumber;
-  }
+public class Room {
+    private byte quantity;
+    private boolean wc;
+    private boolean eat;
+    private boolean wifi;
+    private boolean isFree;
+    private byte roomNumber;
 
+    public Room(byte quantity, boolean wc, boolean eat, boolean wifi, byte roomNumber) {
+        this.quantity = quantity;
+        this.wc = wc;
+        this.eat = eat;
+        this.wifi = wifi;
+        this.isFree = true;
+        this.roomNumber = roomNumber;
+    }
 
-  public byte getRoomNumber() {
-    return roomNumber;
-  }
+    @Override
+    public String toString() {
+        return "Room{" +
+                "quantity=" + quantity +
+                ", wc=" + wc +
+                ", eat=" + eat +
+                ", wifi=" + wifi +
+                ", isFree=" + isFree +
+                ", roomNumber=" + roomNumber +
+                '}';
+    }
 
-  public byte getQuantity() {
-    return quantity;
-  }
+    public byte getRoomNumber() {
+        return roomNumber;
+    }
 
-  public boolean isWc() {
-    return wc;
-  }
+    public byte getQuantity() {
+        return quantity;
+    }
 
-  public boolean isEat() {
-    return eat;
-  }
+    public boolean isWc() {
+        return wc;
+    }
 
-  public boolean isWifi() {
-    return wifi;
-  }
+    public boolean isEat() {
+        return eat;
+    }
 
-  public boolean isFree() {
-    return isFree;
-  }
+    public boolean isWifi() {
+        return wifi;
+    }
 
-  public void setFree(boolean free) {
-    isFree = free;
-  }
+    public boolean isFree() {
+        return isFree;
+    }
 
-  public void roomProperties (){
-    System.out.println("Свойства комнаты " +
-            getRoomNumber() +
-            " :\nСпальных мест: "+ getQuantity()
-            + "\nТуалет: " + isWc()
-            + "\nWifi: "+ isWifi()
-            + "\nПитание: " + isEat()
-            + "\nСвободна: " + isFree());
-  }
+    public void setFree(boolean free) {
+        isFree = free;
+    }
 }

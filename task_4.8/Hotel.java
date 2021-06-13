@@ -1,104 +1,91 @@
-class Hotel {
-  Room[] rooms;
+public class Hotel {
+    Room[] rooms;
 
-  public Room[] getRooms() {
-    return rooms;
-  }
-
-  public Hotel(Room[] rooms) {
-    this.rooms = rooms;
-  }
-
-  public void getFreeRooms(){
-    String freeRoomsList = "";
-    for (int i = 0; i < rooms.length; i++) {
-      if (rooms[i].isFree()) freeRoomsList += rooms[i].getRoomNumber()+", ";
+    public Hotel(Room[] rooms) {
+        this.rooms = rooms;
     }
-    System.out.println("Номера свободных комнат "+freeRoomsList);
-  }
-  public void reserveRoom(byte roomNumber){
-    String info = "Такой комнаты не существует";
-    for (int i = 0; i < rooms.length; i++) {
-      Room room = rooms[i];
-      if(room.getRoomNumber() == roomNumber && room.isFree()){
-        room.setFree(false);
-        info = ("Комната номер "+roomNumber+" успешно забронированна");
-        break;
-      }else if(room.getRoomNumber() == roomNumber && !room.isFree()){
-        info = "Комната "+roomNumber+" занята";
-        break;
-      }
-    }
-    System.out.println(info);
-  }
 
-  public void freeRoom(byte roomNumber){
-    String info = "Такой комнаты не существует";
-    for (int i = 0; i < rooms.length; i++) {
-      Room room = rooms[i];
-      if(room.getRoomNumber() == roomNumber && !room.isFree()){
-        room.setFree(true);
-        info = ("Комната номер "+roomNumber+" успешно освобождена");
-        break;
-      }else if(room.getRoomNumber() == roomNumber && room.isFree()){
-        info = "Комната "+roomNumber+" была свободна";
-        break;
-      }
-    }
-    System.out.println(info);
-  }
-
-  public void showWiFiRooms(){
-
-    String wifiRoomsList = "";
-    for (int i = 0; i < rooms.length; i++) {
-      if (rooms[i].isWifi()) wifiRoomsList += rooms[i].getRoomNumber()+", ";
-    }
-    System.out.println("Номера комнат c WiFi: "+ wifiRoomsList);
-  }
-
-  public void showWcRooms(){
-
-    String wcRoomsList = "";
-    for (int i = 0; i < rooms.length; i++) {
-      if (rooms[i].isWc()) wcRoomsList += rooms[i].getRoomNumber()+", ";
-    }
-    System.out.println("Номера комнат c туалетом: "+ wcRoomsList);
-  }
-  public void showEatRooms(){
-
-    String eatRoomsList = "";
-    for (int i = 0; i < rooms.length; i++) {
-      if (rooms[i].isEat()) eatRoomsList += rooms[i].getRoomNumber()+", ";
-    }
-    System.out.println("Номера комнат c питанием: "+ eatRoomsList);
-  }
-
-  public void showQuantitySortedRooms(){
-    String quantitySortedRoomsList = "";
-    Room[] sortedRooms = bubbleSort(rooms);
-
-    for (int i = 0; i < rooms.length; i++) {
-
-      quantitySortedRoomsList += rooms[i].getRoomNumber()+" мест "+ rooms[i].getQuantity() +"\n ";
-    }
-    System.out.println("Номера комнат c количеством спальных мест:\n "+ quantitySortedRoomsList);
-  }
-
-  public static Room[] bubbleSort(Room[] array) {
-    boolean sorted = false;
-    Room temp;
-    while(!sorted) {
-      sorted = true;
-      for (int i = 0; i < array.length - 1; i++) {
-        if (array[i].getQuantity() < array[i+1].getQuantity()) {
-          temp = array[i];
-          array[i] = array[i+1];
-          array[i+1] = temp;
-          sorted = false;
+    public void getFreeRooms() {
+        String freeRoomsList = "";
+        for (int i = 0; i < rooms.length; i++) {
+            if (rooms[i].isFree()) freeRoomsList += rooms[i].getRoomNumber() + ", ";
         }
-      }
+        System.out.println("РќРѕРјРµСЂР° СЃРІРѕР±РѕРґРЅС‹С… РєРѕРјРЅР°С‚ " + freeRoomsList);
     }
-    return array;
-  }
+
+    public void reserveRoom(byte roomNumber) {
+        String info = "РўР°РєРѕР№ РєРѕРјРЅР°С‚С‹ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚";
+        for (int i = 0; i < rooms.length; i++) {
+            Room room = rooms[i];
+            if (room.getRoomNumber() == roomNumber && room.isFree()) {
+                room.setFree(false);
+                info = ("РљРѕРјРЅР°С‚Р° РЅРѕРјРµСЂ " + roomNumber + " СѓСЃРїРµС€РЅРѕ Р·Р°Р±СЂРѕРЅРёСЂРѕРІР°РЅРЅР°");
+                break;
+            } else if (room.getRoomNumber() == roomNumber && !room.isFree()) {
+                info = "РљРѕРјРЅР°С‚Р° " + roomNumber + " Р·Р°РЅСЏС‚Р°";
+                break;
+            }
+        }
+        System.out.println(info);
+    }
+
+    public void freeRoom(byte roomToFreeNumber) {
+        String info = "РўР°РєРѕР№ РєРѕРјРЅР°С‚С‹ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚";
+        for (int i = 0; i < rooms.length; i++) {
+            Room room = rooms[i];
+            if (room.getRoomNumber() == roomToFreeNumber && !room.isFree()) {
+                room.setFree(true);
+                info = ("РљРѕРјРЅР°С‚Р° РЅРѕРјРµСЂ " + roomToFreeNumber + " С‚РµРїРµСЂСЊ РґРѕСЃС‚СѓРїРЅР° РґР»СЏ Р±СЂРѕРЅРёСЂРѕРІР°РЅРёСЏ.");
+                break;
+            } else if (room.getRoomNumber() == roomToFreeNumber && room.isFree()) {
+                info = "РљРѕРјРЅР°С‚Р° " + roomToFreeNumber + " СѓР¶Рµ Рё С‚Р°Рє СЃРІРѕР±РѕРґРЅР°";
+                break;
+            }
+
+        }
+        System.out.println(info);
+    }
+
+
+    public void showRooms(String options) {
+
+        StringBuilder RoomsList = new StringBuilder();
+        for (int i = 0; i < rooms.length; i++) {
+            Room room = rooms[i];
+            if (options.equals("Wifi")) {
+                if (room.isWifi())
+                    RoomsList.append(rooms[i].getRoomNumber()).append(", ");
+            } else if (options.equals("WC")) {
+                if (room.isWc())
+                    RoomsList.append(rooms[i].getRoomNumber()).append(", ");
+            } else if (options.equals("РµРґРѕР№")) {
+                if (room.isEat())
+                    RoomsList.append(rooms[i].getRoomNumber()).append(", ");
+            }
+        }
+        System.out.println("РќРѕРјРµСЂР° РєРѕРјРЅР°С‚ СЃ " + options + ": " + RoomsList.toString());
+    }
+
+
+    public void showRooms(byte options) {
+        for (int i = 0; i < rooms.length; i++) {
+            Room room = rooms[i];
+            if (room.getRoomNumber() == options) {
+                System.out.println(room.toString());
+                break;
+            }
+        }
+    }
+
+    public void showRoomsBeds(byte beds) {
+        StringBuilder RoomsList = new StringBuilder();
+        for (int i = 0; i < rooms.length; i++) {
+            Room room = rooms[i];
+            if (room.getQuantity() == beds)
+                RoomsList.append(room.getRoomNumber()).append(", ");
+
+        }
+        System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕРјРЅР°С‚ СЃ С‡РёСЃР»РѕРј СЃРїР°Р»СЊРЅС‹С… РјРµСЃС‚ " + beds + "\n" + RoomsList.toString());
+    }
+
 }
