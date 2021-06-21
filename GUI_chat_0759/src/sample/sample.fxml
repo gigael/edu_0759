@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<VBox accessibleHelp="help" accessibleText="text" alignment="center" prefHeight="612.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextArea prefHeight="617.0" prefWidth="750.0" text="Привет МИР&#10;">
+         <effect>
+            <Lighting bumpInput="$null">
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9210526347160339" green="0.9125243425369263" blue="0.9125243425369263" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></TextArea>
+      <HBox prefHeight="29.0" prefWidth="750.0">
+         <children>
+            <TextField prefHeight="25.0" prefWidth="619.0" text="напиши тут" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: black;" text="Отправить" textAlignment="CENTER" textFill="#c2c9ff" underline="true" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
