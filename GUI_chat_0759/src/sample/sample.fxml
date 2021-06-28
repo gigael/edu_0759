@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<VBox accessibleHelp="help" accessibleText="text" alignment="center" prefHeight="612.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <TextArea prefHeight="617.0" prefWidth="750.0" text="Привет МИР&#10;">
-         <effect>
-            <Lighting bumpInput="$null">
-               <light>
-                  <Light.Distant>
-                     <color>
-                        <Color red="0.9210526347160339" green="0.9125243425369263" blue="0.9125243425369263" />
-                     </color>
-                  </Light.Distant>
-               </light>
-            </Lighting>
-         </effect></TextArea>
-      <HBox prefHeight="29.0" prefWidth="750.0">
-         <children>
-            <TextField prefHeight="25.0" prefWidth="619.0" text="напиши тут" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: black;" text="Отправить" textAlignment="CENTER" textFill="#c2c9ff" underline="true" />
-         </children>
-      </HBox>
-   </children>
-</VBox>
+<HBox prefHeight="300" prefWidth="500" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.Controller">
+   <TextArea fx:id="userListTextArea" editable="false" prefHeight="300" prefWidth="125" style="-fx-border-width: 10px; -fx-background-color: black;" />
+   <VBox alignment="center" prefHeight="300" prefWidth="375">
+      <children>
+         <TextArea fx:id="textArea" editable="false" prefHeight="250" prefWidth="375">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </TextArea>
+         <HBox prefHeight="25" prefWidth="375">
+            <children>
+               <TextField fx:id="textField" onAction="#send" prefWidth="275" />
+               <Button mnemonicParsing="false" onAction="#send" prefWidth="100" style="-fx-background-color: blue;"
+                       text="Отправить" textAlignment="CENTER" textFill="#f2fcfe" underline="true" />
+            </children>
+         </HBox>
+         <Button fx:id="connectBtn" onAction="#connect" prefHeight="25" prefWidth="Infinity" text="Подключиться" />
+      </children>
+   </VBox>
+</HBox>
