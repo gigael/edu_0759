@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">quiz-game</string>
+    <string name="button_yes">Да</string>
+    <string name="button_no">Нет</string>
+    <string name="text_hint_main_act">Пример вопроса здесь: большой вопрос выглядит так</string>
+    <string name="text_hint_answer_act">Список вопросов - ответ пользователя. Результат</string>
+
+    <string name="question0">2+2*2=8</string>
+    <string name="question1">Хараре - столица Зимбабве</string>
+    <string name="question2">В Солнечной системе 8 планет</string>
+    <string name="question3">На планете Земля 4 океана</string>
+    <string name="question4">Первая космическая скорость = 7910 км/ч</string>
+
+    <string name="correct">Правильно</string>
+    <string name="incorrect">Не правильно</string>
+</resources>

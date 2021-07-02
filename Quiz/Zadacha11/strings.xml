@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="question1">2+10=12?</string>
+    <string name="question2">Москва - столица России?</string>
+    <string name="question3">8-6=3?</string>
+    <string name="question4">1+5=3</string>
+    <string name="question5">1+1=2</string>
+    <string name="yes_btn">Да</string>
+    <string name="no_btn">Нет</string>
+    <string name="correct">Правильно</string>
+    <string name="incorrect">Не правильно</string>
+</resources>
