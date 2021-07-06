@@ -12,9 +12,6 @@ public class UserFormActivity extends AppCompatActivity {
     EditText editTextName;
     EditText editTextLastName;
     EditText editTextPhone;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +19,6 @@ public class UserFormActivity extends AppCompatActivity {
         editTextName = findViewById(R.id.editTextName);
         editTextLastName = findViewById(R.id.editTextLastName);
         editTextPhone = findViewById(R.id.editTextPhone);
-
         insertUserBtn = findViewById(R.id.insertUserBtn);
         insertUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,8 +30,8 @@ public class UserFormActivity extends AppCompatActivity {
                 Users users = new Users(UserFormActivity.this);
                 users.addUser(user);
                 onBackPressed();
-
             }
         });
+
     }
 }

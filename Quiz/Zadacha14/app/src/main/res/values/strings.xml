@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Secondapp</string>
+    <string name="app_name">secondApp</string>
+    <string name="deleteBtn">Удаление</string>
 </resources>

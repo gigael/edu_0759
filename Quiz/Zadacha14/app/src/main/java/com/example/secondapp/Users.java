@@ -7,8 +7,8 @@ import android.database.CursorWrapper;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.secondapp.database.USerDbSchema;
 import com.example.secondapp.database.UserBaseHelper;
+import com.example.secondapp.database.UserDbSchema;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,31 +20,24 @@ public class Users {
 
     public Users(Context context) {
         this.context = context.getApplicationContext();
-        this.database=new UserBaseHelper(context).getWritableDatabase();
+        this.database = new UserBaseHelper(context).getWritableDatabase();
     }
-    public void addUser(User user) {
-        ContentValues values=getContentValues(user);
-        database.insert(USerDbSchema.UserTable.NAME, null, values);
-    }
-
-    public void removeUser(User user) {
+    public void addUser(User user){
         ContentValues values = getContentValues(user);
-        database.delete(USerDbSchema.UserTable.NAME,USerDbSchema.Cols.UUID+"='"+user.getUuid().toString()+"'" ,null);
+        database.insert(UserDbSchema.UserTable.NAME, null,values);
     }
-
-    private static ContentValues getContentValues(User user) {
+    private static ContentValues getContentValues(User user){
         ContentValues values = new ContentValues();
-        //Сопоставляем колонки и свойства объекта User
-        values.put(USerDbSchema.Cols.UUID, user.getUuid().toString());
-        values.put(USerDbSchema.Cols.USERNAME, user.getUserName());
-        values.put(USerDbSchema.Cols.USERLASTNAME, user.getUserLastName());
-        values.put(USerDbSchema.Cols.PHONE, user.getPhone());
-
+        // Сопоставляем колонки и свойства объекта User
+        values.put(UserDbSchema.Cols.UUID, user.getUuid().toString());
+        values.put(UserDbSchema.Cols.USERNAME, user.getUserName());
+        values.put(UserDbSchema.Cols.USERLASTNAME, user.getUserLastName());
+        values.put(UserDbSchema.Cols.PHONE, user.getPhone());
         return values;
-
     }
-    private UserCursorWrapper queryUsers() {
-        Cursor cursor = database.query(USerDbSchema.UserTable.NAME, null,null,null,null,null,null);
+
+    private UserCursorWrapper queryUsers(){
+        Cursor cursor = database.query(UserDbSchema.UserTable.NAME,null,null,null,null,null,null);
         return new UserCursorWrapper(cursor);
     }
 
@@ -57,11 +50,11 @@ public class Users {
                 User user = cursorWrapper.getUser();
                 userList.add(user);
                 cursorWrapper.moveToNext();
+
             }
         }finally {
             cursorWrapper.close();
         }
         return userList;
-
     }
 }
